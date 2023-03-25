@@ -1,10 +1,11 @@
 import './App.css'
+import MainView from './components/MainView'
 
 function App() {
 
   return (
     <div className="App">
-      <p>All set</p>
+      <MainView />
     </div>
   )
 }
