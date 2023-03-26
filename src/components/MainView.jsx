@@ -20,17 +20,7 @@ const MainView = () =>{
     useEffect(() => {
         fetchData();
     }, []);
-
-    // function handleStateFilter(event){
-    //     setSelectedState(event.target.value);
-    // }
-
-    // const filteredEvents = selectedState
-    // ? events.filter((event) => event.venue.state === selectedState)
-    // : events;
-    //to handle the state change
-
-    //another useEffect to filters
+    
     useEffect(()=>{
 
         //apply state filter
@@ -54,35 +44,6 @@ const MainView = () =>{
     const handleSearchQuery = (event) =>{
         setSearchQuery(event.target.value);
     }
-
-    // const handleSearch = (event) =>{
-    //     event.preventDefault();
-    //     //apply search filter
-    //     setFilteredEvents((prevEvents) => prevEvents.filter((event) => event.title.toLowerCase().includes(searchQuery.toLowerCase())));
-    // }
-
-    // const handleStateChange = (event) => {
-    //     setSelectedState(event.target.value);
-    //     //filter state based on selected state
-    //     if(event.target.value != ""){
-    //         const filteredByState = selectedState
-    //         ? events.filter((event) => event.venue.state === selectedState): events;
-    //         setFilteredEvents(filteredByState);
-    //     }
-    //     //else{
-    //     //     setFilteredEvents(events);
-    //     // }
-    // }
-
-    // // to handle the search
-    // const handleSearch = (event) =>{
-    //     setSearchTerm(event.target.value);
-
-    //     //filter the event based on search term
-    //     const filtered = events.filter((event) => 
-    //     event.title.toLowerCase().includes(event.target.value.toLowerCase()));
-    //     setFilteredEvents(filtered);
-    // }
 
   return (
     <div>
