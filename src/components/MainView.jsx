@@ -35,6 +35,7 @@ const MainView = () =>{
 
         //apply state filter
         if(stateFilter != ""){
+            setFilteredEvents(eventsData);//to set the filteredEvents to original events data
             setFilteredEvents((prevEvents) => prevEvents.filter((event) => event.venue.state === stateFilter));
         }else{
             setFilteredEvents(eventsData);
