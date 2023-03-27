@@ -32,7 +32,7 @@ The following **optional** features are implemented:
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+- The challenging part was to to apply the multiple filters and made them work simultaneously but with some online research and after reading documentation I was able to do it.
 
 ## License
 
