@@ -9,6 +9,7 @@ const MainView = () =>{
     const [stateFilter, setStateFilter] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
     const [capacity, setCapacity] = useState("");
+    const [selectedDate, setSelectedDate] = useState("");
 
     async function fetchData() {
         const response = await fetch("https://api.seatgeek.com/2/events?per_page=1000&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
@@ -49,8 +50,13 @@ const MainView = () =>{
         }else if(capacity == 10001){
             setFilteredEvents((prevEvents) => prevEvents.filter((event) => (event.venue.capacity >= capacity) && (event.venue.capacity != '')));
         }
+
+        //apply the date filter
+        if(selectedDate != ''){
+            setFilteredEvents((prevEvents) => prevEvents.filter((event) => (new Date(event.datetime_local).toISOString().substring(0,10) == selectedDate)));
+        }
            
-    }, [eventsData, stateFilter, searchQuery, capacity]);
+    }, [eventsData, stateFilter, searchQuery, capacity, selectedDate]);
 
     const handleStateFilter = (event) =>{
         setStateFilter(event.target.value);
@@ -62,6 +68,10 @@ const MainView = () =>{
 
     const handleCapacity = (event) =>{
         setCapacity(event.target.value);
+    }
+
+    const handleDateChange = (event) =>{
+        setSelectedDate(event.target.value);
     }
 
   return (
@@ -85,7 +95,9 @@ const MainView = () =>{
                     }
                 </select>
             </p>
-            <p>Second filter - Date</p>
+            <p>
+                Search by Date: <input type="date" value={selectedDate} onChange={handleDateChange} />
+            </p>
             <p>
                 <label>Filter by Capacity: </label>
                 <select onChange={handleCapacity}>
