@@ -28,7 +28,7 @@ The following **optional** features are implemented:
 
 ## Video Walkthrough
 
-
+![A GIF walkthrough of the project](src/assets/rec2-eventFinder.gif)
 
 ## Notes
 
