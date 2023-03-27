@@ -13,8 +13,7 @@ const MainView = () =>{
 
     async function fetchData() {
         const response = await fetch("https://api.seatgeek.com/2/events?per_page=1000&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
-        const data = await response.json()
-        console.log(data);
+        const data = await response.json();
         setEventsData(data.events);
         setFilteredEvents(data.events);
     }
