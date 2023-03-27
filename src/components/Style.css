@@ -8,6 +8,7 @@
     margin-right: 5%;
     display: flex;
     justify-content: space-between;
+    color:rgb(224, 244, 14);
 }
 
 .search{
@@ -34,7 +35,7 @@
 .card{
   width: 100%;
   height: 120px;
-  background-color: #fa7777;
+  background-color: #eb9090;
   margin: 10px;
   text-align: center;
   box-shadow: 0 5px 10px rgba(211, 255, 91, 0.5);

@@ -8,9 +8,10 @@ const MainView = () =>{
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [stateFilter, setStateFilter] = useState("");
     const [searchQuery, setSearchQuery] = useState("");
+    const [capacity, setCapacity] = useState("");
 
     async function fetchData() {
-        const response = await fetch("https://api.seatgeek.com/2/events?per_page=100&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
+        const response = await fetch("https://api.seatgeek.com/2/events?per_page=1000&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
         const data = await response.json()
         console.log(data);
         setEventsData(data.events);
@@ -35,7 +36,21 @@ const MainView = () =>{
         if(searchQuery !== ""){
             setFilteredEvents((prevEvents) => prevEvents.filter((event) => event.title.toLowerCase().includes(searchQuery.toLowerCase())));
         }
-    }, [eventsData, stateFilter, searchQuery]);
+
+        //apply capacity filter
+        if(capacity == 1000){
+            setFilteredEvents((prevEvents) => prevEvents.filter((event) => (event.venue.capacity <= capacity) && (event.venue.capacity != '')));
+        }else if(capacity == 2000){
+            setFilteredEvents((prevEvents) => prevEvents.filter((event) => (event.venue.capacity <= capacity) && (event.venue.capacity != '')));
+        }else if(capacity == 5000){
+            setFilteredEvents((prevEvents) => prevEvents.filter((event) => (event.venue.capacity <= capacity) && (event.venue.capacity != '')));
+        }else if(capacity == 10000){
+            setFilteredEvents((prevEvents) => prevEvents.filter((event) => (event.venue.capacity <= capacity) && (event.venue.capacity != '')));
+        }else if(capacity == 10001){
+            setFilteredEvents((prevEvents) => prevEvents.filter((event) => (event.venue.capacity >= capacity) && (event.venue.capacity != '')));
+        }
+           
+    }, [eventsData, stateFilter, searchQuery, capacity]);
 
     const handleStateFilter = (event) =>{
         setStateFilter(event.target.value);
@@ -43,6 +58,10 @@ const MainView = () =>{
 
     const handleSearchQuery = (event) =>{
         setSearchQuery(event.target.value);
+    }
+
+    const handleCapacity = (event) =>{
+        setCapacity(event.target.value);
     }
 
   return (
@@ -67,7 +86,17 @@ const MainView = () =>{
                 </select>
             </p>
             <p>Second filter - Date</p>
-            <p>Third filter - Capacity</p>
+            <p>
+                <label>Filter by Capacity: </label>
+                <select onChange={handleCapacity}>
+                    <option value="">All</option>
+                    <option value="1000">Less than 1,000</option>
+                    <option value="2000">Less than 2,000</option>
+                    <option value="5000">Less than 5,000</option>
+                    <option value="10000">Less than 10,000</option>
+                    <option value="10001">More than 10,000</option>
+                </select>
+            </p>
         </div>
       <hr/>
       <div className='container'>
