@@ -12,7 +12,7 @@ const MainView = () =>{
     const [selectedDate, setSelectedDate] = useState("");
 
     async function fetchData() {
-        const response = await fetch("https://api.seatgeek.com/2/events?per_page=1000&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
+        const response = await fetch("https://api.seatgeek.com/2/events?per_page=100&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
         const data = await response.json();
         setEventsData(data.events);
         setFilteredEvents(data.events);
@@ -115,6 +115,7 @@ const MainView = () =>{
                 <div className='card'>
                     <p key={event.id}>
                         <strong>{event.title}</strong>
+                        <span className='details'>🔗</span>
                     </p>
                     <p>
                         Event Type: <span>{event.type},</span>

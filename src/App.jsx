@@ -1,10 +1,13 @@
-import MainView from './components/MainView'
+import MainView from './components/MainView';
+import LeftVisual from './components/LeftVisual';
+import './App.css';
 
 function App() {
 
   return (
     <div className="App">
-      <MainView />
+      <div className="container1"><MainView /></div>
+      <div className="container2"><LeftVisual /></div>
     </div>
   )
 }

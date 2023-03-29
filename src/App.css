@@ -1,0 +1,11 @@
+.App{
+    display: flex;
+}
+
+.container1{
+    flex:8;
+}
+
+.container2{
+    flex:2;
+}
