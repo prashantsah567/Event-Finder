@@ -3,9 +3,10 @@
 }
 
 .container1{
-    flex:8;
+    flex:7;
 }
 
 .container2{
-    flex:2;
+    flex:3;
+    background-color: antiquewhite;
 }
