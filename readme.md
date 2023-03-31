@@ -1,5 +1,5 @@
 # Web Development Project 5 - *Event-Finder*
-
+# Ongoing project-6
 Submitted by: **Prashant Sah**
 
 This web app: **Shows thousands of events in US and Canada and user can easily search events and apply various filters to find their favourite event**
