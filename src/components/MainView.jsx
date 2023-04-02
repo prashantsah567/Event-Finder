@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 import './Style.css';
 import States from './States';
 import LeftVisual from './LeftVisual';
 
-const MainView = () =>{
+const MainView = ({id}) =>{
 
     const [eventsData, setEventsData] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
@@ -148,7 +149,8 @@ const MainView = () =>{
                         <div className='card'>
                             <p key={event.id}>
                                 <strong>{event.title}</strong>
-                                <span className='details'>🔗</span>
+                                {/* <span className='details'>🔗</span> */}
+                                <Link to={`/detail/${id}`} className='details'>🔗</Link>
                             </p>
                             <p>
                                 Event Type: <span>{event.type},</span>

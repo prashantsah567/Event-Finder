@@ -52,6 +52,7 @@ span{
     font-size: 18px;
     color: #999;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .details::after {
