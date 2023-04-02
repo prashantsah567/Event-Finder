@@ -67,3 +67,18 @@ span{
     white-space: nowrap;
     z-index: 1;
 }
+
+/* design of containers */
+
+.mainContainer{
+    display: flex;
+}
+
+.container1{
+    flex:6;
+}
+
+.container2{
+    flex:4;
+    background-color: antiquewhite;
+}
