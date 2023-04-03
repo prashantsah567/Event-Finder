@@ -13,6 +13,10 @@ const MainView = () =>{
     const [capacity, setCapacity] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
 
+    if(!eventsData){
+        return <div>Loading...</div>
+    }
+
     async function fetchData() {
         const response = await fetch("https://api.seatgeek.com/2/events?per_page=100&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
         const data = await response.json();
@@ -94,6 +98,8 @@ const MainView = () =>{
     const handleDateChange = (event) =>{
         setSelectedDate(event.target.value);
     }
+
+    
 
   return (
     <div className='mainContainer'>

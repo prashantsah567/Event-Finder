@@ -28,13 +28,32 @@ const DetailPage = () =>{
       if(!item){
         return <div>Loading...</div>
       }
+
     //here will be the data from the id we get as a parameter in the URL
     return(
-        <div>
-            <h1>Detail Page</h1>
-            <p>Additional data for card {id}</p>
-            <p>{item.short_title}</p>
-            <p>{item.venue.address}</p>
+        <div className='container'>
+            <div className='box'>
+                <h1>{item.short_title}</h1>
+                <p></p>
+                <div className='content'>
+                    Event Type: <span>{item.type}</span>,
+                    Event Date: <span>{new Date(item.datetime_utc).toLocaleString()}</span>
+                    <p></p>
+                    Address: <span>{item.venue.address}</span>,
+                    City: <span>{item.venue.city}</span>,
+                    Zip Code: <span>{item.venue.postal_code}</span>
+                    <p></p>
+                    Venue: <span>{item.venue.name}</span>
+                    <p></p>
+                    Capacity: <span>{item.venue.capacity}</span>
+                    <p></p>
+                    
+                    Performer: <span>{item.performers[0].name}</span>
+                    {/* {item.performers.map(performer => {
+                        <span>{performer.name}</span>
+                    })} */}
+                </div>
+            </div>
         </div>
     )
 }

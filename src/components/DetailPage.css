@@ -1,0 +1,13 @@
+.container{
+    margin: 5%; 
+}
+
+.box{
+    
+}
+
+.content{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
