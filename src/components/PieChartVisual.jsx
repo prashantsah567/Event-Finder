@@ -1,5 +1,6 @@
 import React from "react";
 import {PieChart, Pie, Cell, Tooltip} from "recharts";
+import './BarChartVisual.css';
 
 const PieChartVisual = ({pieChartData}) => {
     
@@ -20,21 +21,18 @@ const PieChartVisual = ({pieChartData}) => {
       {console.log(pieChartData)}
     return(
         <div>
+            <h3 className='bar-header'>Pie Chart Showing Event Types by Percentage and Numbers</h3>
             <PieChart width={700} height={700}>
                 <Pie 
                 data={pieChartData} 
                 dataKey="count"
                 nameKey="eventType"
-                //data={pieChartData.map((entry, index) => ({ ...entry, fill: COLORS[index % COLORS.length] }))}
                 cx={300} 
-                cy={300} 
+                cy={200} 
                 labelLine={false}
                 label={renderCustomizedLabel}
-                // label={({value}) => value}
                 outerRadius={180} 
-                fill="#8884d8" 
-                // dataKey="count"
-                >
+                fill="#8884d8">
                     {pieChartData.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[Math.floor(Math.random() * COLORS.length)]} />
                     ))}
