@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import './DetailPage.css';
 
 const DetailPage = () =>{
     const {id} = useParams();
@@ -31,11 +32,11 @@ const DetailPage = () =>{
 
     //here will be the data from the id we get as a parameter in the URL
     return(
-        <div className='container'>
+        <div className='card-container'>
             <div className='box'>
-                <h1>{item.short_title}</h1>
-                <p></p>
                 <div className='content'>
+                    <h1>{item.short_title}</h1>
+                    <p></p>
                     Event Type: <span>{item.type}</span>,
                     Event Date: <span>{new Date(item.datetime_utc).toLocaleString()}</span>
                     <p></p>
@@ -45,13 +46,11 @@ const DetailPage = () =>{
                     <p></p>
                     Venue: <span>{item.venue.name}</span>
                     <p></p>
-                    Capacity: <span>{item.venue.capacity}</span>
+                    Capacity:<span>{(item.venue.capacity) > 0 ? (item.venue.capacity):'N/A'}</span>   
                     <p></p>
-                    
+                    Popularity: <span>{item.popularity * 100}%</span>
+                    <p></p>
                     Performer: <span>{item.performers[0].name}</span>
-                    {/* {item.performers.map(performer => {
-                        <span>{performer.name}</span>
-                    })} */}
                 </div>
             </div>
         </div>
