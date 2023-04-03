@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import './Style.css';
 import States from './States';
-import LeftVisual from './LeftVisual';
+import BarChartVisual from './BarChartVisual';
 
 const MainView = () =>{
 
@@ -163,7 +163,7 @@ const MainView = () =>{
             </div>
         </div>
         <div className='container2'>
-            <LeftVisual chartData={chartData}/>
+            <BarChartVisual chartData={chartData}/>
         </div>
     </div>
 

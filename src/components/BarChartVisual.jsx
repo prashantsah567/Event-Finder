@@ -1,8 +1,8 @@
 import React from 'react';
 import {BarChart, Bar, XAxis, YAxis, Tooltip, Legend, LabelList} from 'recharts';
-import './LeftVisual.css';
+import './BarChartVisual.css';
 
-const LeftVisual = ({chartData}) =>{
+const BarChartVisual = ({chartData}) =>{
     
     return(
         <div className='left-visual'>
@@ -20,4 +20,4 @@ const LeftVisual = ({chartData}) =>{
     )
 }
 
-export default LeftVisual;
+export default BarChartVisual;
