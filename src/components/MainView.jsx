@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import './Style.css';
 import States from './States';
 import BarChartVisual from './BarChartVisual';
+import PieChartVisual from './PieChartVisual';
 
 const MainView = () =>{
 
@@ -42,12 +43,31 @@ const MainView = () =>{
         return acc;
     },{});
 
-    //convert stateData to an array of objects for use in the VictoryBar component
+    //convert stateData to an array of objects for use in BarChartVisual component
     const chartData = Object.keys(stateData || {}).map((key) => ({
         state: key,
         events: stateData[key],
     }));
+
+    //for the data of Pie-Chart we need to store eventType and numberOfEvent as count
+    const eventTypeData = eventsData?.reduce((acc, curr) => {
+        const eventType = curr.type;
+        if(eventType){
+            if(!acc[eventType]){
+                acc[eventType] = 0;
+            }
+            acc[eventType]++;
+        }
+        return acc;
+    },{});
+
+    //now we convert the eventType data to array of Objects to pass it to BarChartVisual component
+    const pieChartData = Object.keys(eventTypeData || {}).map((key) => ({
+        eventType: key,
+        count: eventTypeData[key],
+    }))
     
+    //another useEffect hook to handle multiple filters
     useEffect(()=>{
 
         //apply state filter
@@ -163,7 +183,12 @@ const MainView = () =>{
             </div>
         </div>
         <div className='container2'>
-            <BarChartVisual chartData={chartData}/>
+            <div className="barChart">
+                <BarChartVisual chartData={chartData}/>
+            </div>
+            <div className="pieChart">
+                <PieChartVisual pieChartData={pieChartData}/>
+            </div>
         </div>
     </div>
 
