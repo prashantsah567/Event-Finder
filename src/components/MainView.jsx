@@ -4,7 +4,7 @@ import './Style.css';
 import States from './States';
 import LeftVisual from './LeftVisual';
 
-const MainView = ({id}) =>{
+const MainView = () =>{
 
     const [eventsData, setEventsData] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
@@ -12,15 +12,6 @@ const MainView = ({id}) =>{
     const [searchQuery, setSearchQuery] = useState("");
     const [capacity, setCapacity] = useState("");
     const [selectedDate, setSelectedDate] = useState("");
-
-    const data = [
-        {state: 'NY', events:10},
-        {state: 'NJ', events: 5},
-        {state: 'AR', events: 15},
-        {state: 'FL', events: 1},
-        {state: 'AK', events: 20}
-    ];
-    console.log(data);
 
     async function fetchData() {
         const response = await fetch("https://api.seatgeek.com/2/events?per_page=100&client_id=MzI2MTYwNzR8MTY3OTY5OTg2MS45ODAwMDAz")
@@ -32,6 +23,8 @@ const MainView = ({id}) =>{
     useEffect(() => {
         fetchData();
     }, []);
+
+    console.log(eventsData);
 
     //extract state names and count events for each state
     const stateData = eventsData?.reduce((acc, curr) => {
@@ -45,15 +38,11 @@ const MainView = ({id}) =>{
         return acc;
     },{});
 
-    console.log(stateData);
-
     //convert stateData to an array of objects for use in the VictoryBar component
     const chartData = Object.keys(stateData || {}).map((key) => ({
         state: key,
         events: stateData[key],
     }));
-
-    console.log(chartData);
     
     useEffect(()=>{
 
@@ -149,8 +138,7 @@ const MainView = ({id}) =>{
                         <div className='card'>
                             <p key={event.id}>
                                 <strong>{event.title}</strong>
-                                {/* <span className='details'>🔗</span> */}
-                                <Link to={`/detail/${id}`} className='details'>🔗</Link>
+                                <Link to={`/detail/${event.id}`} className='details'>🔗</Link>
                             </p>
                             <p>
                                 Event Type: <span>{event.type},</span>
