@@ -1,42 +1,38 @@
-# Web Development Project 5 - *Event-Finder*
-# Ongoing project-6
+# Web Development Project 6 - *Event Finder*
+
 Submitted by: **Prashant Sah**
 
-This web app: **Shows thousands of events in US and Canada and user can easily search events and apply various filters to find their favourite event**
+This web app: **Displays hundreds of events around US and Canada, where users can find events using multiple filters and data are visualized using bar chart and pie chart**
 
-Time spent: **12** hours spent in total
+Time spent: **15** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The list displays a list of data fetched using an API call**
-- [x] **Data uses the useEffect React hook and async/await syntax**
-- [x] **The app dashboard includes at least three summary statistics about the data such as**
-  - [x] *Title of the event*
-  - [x] *Date and time of the event*
-  - [x] *Event location*
-  - [x] *Event Capacity*
-- [x] **A search bar allows the user to search for an item in the fetched data**
-- [x] **Multiple different filters (2+) allow the user to filter items in the database by specified categories**
+- [x] **The app includes at least two unique chart developed using the fetched data that tell an interesting story**
+- [x] **Clicking on an item in the list view displays more details about it**
+- [x] **Clicking on an item has a direct, unique link to that item's detail view page**
+
 
 The following **optional** features are implemented:
 
-- [x] Multiple filters can be applied simultaneously
-- [x] Filters use different input types such as a text input, a selection, or a slider
-- [x] The user can enter specific bounds for filter values
+- [x] The site's customized dashboard contains more content that explains what is interesting about the data
+- [x] The site allows users to toggle between different data visualizations
 
-## Video Walkthrough
+## GIF Walkthrough
 
-![A GIF walkthrough of the project](src/assets/rec2-eventFinder.gif)
+Here's a walkthrough of implemented user stories:
+
+
 
 ## Notes
 
-- The challenging part was to to apply the multiple filters and made them work simultaneously but with some online research and after reading documentation I was able to do it.
+The challenging part was to display the data using charts while also showing the respective names and values and with some research I was able to implement that feature 
 
 ## License
 
-    Copyright [2023] [Prashant Sah]
+    Copyright [2023] [prashant sah]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
