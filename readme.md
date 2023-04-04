@@ -24,7 +24,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-
+![Gif walkthrough of the project](src/assets/rec2-implementation2.gif)
 
 ## Notes
 
